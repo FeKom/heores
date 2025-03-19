@@ -1,0 +1,1 @@
+web: java -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap $JAVA_OPTS -Server.port=$PORT -Spring.profiles.active=heroku `jar target/*.jar
