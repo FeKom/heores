@@ -29,7 +29,7 @@ class HeroesResource(
         .map{ HeroesResponse.from(it) }
         .let { ResponseEntity.ok().body(it) }
 
-    @GetMapping("{id}")
+    @GetMapping("{id}/detail")
     //Get Heroes by id
     fun getHeroesDetails(@PathVariable("id") id: Long) =
         repository.getDetails(id)?.let {
