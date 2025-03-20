@@ -16,14 +16,14 @@ data class HeroesRequest(
     @field:NotEmpty
     val person: String,
 
-    val description: String? = "",
-    val history: String? = ""
+    val description: String? = null,
+    val history: String? = null
 ) {
     fun toHeroes() = Heroes(
         nick = nick,
         person = person,
-        description = description.toString(),
-        history = history.toString()
+        description = description,
+        history = history
     )
 
     companion object{
@@ -31,8 +31,8 @@ data class HeroesRequest(
             id = id,
             nick = req.nick,
             person = req.person,
-            description = req.description.toString(),
-            history = req.history.toString()
+            description = req.description,
+            history = req.history
         )
     }
 }

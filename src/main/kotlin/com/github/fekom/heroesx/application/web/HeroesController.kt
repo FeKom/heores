@@ -20,7 +20,7 @@ private const val API_PATH = "v1/api/heroes"
 
 @RestController
 @RequestMapping(value = [API_PATH])
-class HeroesResource(
+class HeroesController(
     @Autowired private val repository: HeroesRepository
 ) {
     @GetMapping
