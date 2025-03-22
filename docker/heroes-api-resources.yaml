@@ -1,5 +1,5 @@
 services:
-  postgres:
+  postgres-heroes:
     image: postgres:12-alpine
     environment:
       POSTGRES_USER: ${DB_USER}
@@ -14,14 +14,14 @@ services:
       - postgres-compose-network
 
   pgadmin-heroes:
-    image: page/pgadmin4
+    image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     ports:
       - "5556:80"
     depends_on:
-      - postgres
+      - postgres-heroes
     networks:
       - postgres-compose-network
 
