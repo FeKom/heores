@@ -1,14 +1,19 @@
 spring:
   profiles:
-    active: dev
-  jackson:
-    serialization:
+    activate:
+      on-profile: heroku
+name: heroku-YAML
+environment: heroku
+enabled: true
+jackson:
+  serialization:
       indent-output: true
   datasource:
     type: com.zaxxer.h1kar1.H1kar1DataSource
-    url: jdbc:postgres://localhost:25433/${DB_NAME}
+    url: jdbc:postgres://${HOST}/${DB_NAME}
+    driverClassName: org.postgresql.Driver
     username: ${DB_USER}
     password: ${DB_PASSWORD}
   jpa:
     database-platform: org.hibernate.dialect.PostgresSQLDialect
-    show-sql: true
+    show-sql: false
